@@ -21,5 +21,7 @@ $id_salle = $_GET['IDsalle'];
  catch(PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
+header('Location: /AP2/PHP/AfficherAdmin.php');
+
 ?>
 

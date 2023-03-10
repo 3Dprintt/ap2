@@ -28,7 +28,7 @@ if (!$_SESSION['email']) {
 		<input type="text" id="email" name="email"><br><br>
 		
 		<label for="date">Date:</label>
-		<input type="date" id="date" name="date"><br><br>
+		<input type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>"><br><br>
 		
         <label for="heure_debut">Heure de début :</label>
         <select id="heure_debut" name="heure_debut" required>
@@ -54,7 +54,7 @@ if (!$_SESSION['email']) {
         <br>
 
 		<div id="div_salle">
-    <label for="salle">Salle :</label>
+    <label for="salle">Salle disponible:</label>
     <select name="IDsalle" id="salle">
     <?php
         try {

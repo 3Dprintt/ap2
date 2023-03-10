@@ -5,14 +5,13 @@ if(!$_SESSION['email']){
    header('Location: /AP2/PHP/connexion.php');
 }
 
-$bdd = new PDO('mysql:host=localhost;dbname=reservationsalle;charset=utf8;', 'root', 'root');
+include("connexionDB.php");
 // Récupération de l'ID de la salle depuis l'URL
 $id_salle = $_GET['IDsalle'];
 
 // Récupération des réservations pour la salle en question sur les 7 prochains jours
 $date_min = date('Y-m-d');
 $date_max = date('Y-m-d', strtotime('+7 days'));
-echo $date_min;
 $sql = "SELECT * FROM test t INNER JOIN users u ON u.IDuser = t.IDuser WHERE IDsalle = $id_salle AND date BETWEEN '$date_min' AND '$date_max' ORDER BY date ASC, heure_debut ASC";
 $resultat = $bdd->query($sql);
 
